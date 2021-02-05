@@ -49,7 +49,7 @@ def bin2idx(omic_bin):
   """
 
   num_max_omic = omic_bin.sum(axis=1).max() # max num of mutation in a single sample
-  omic_idx = np.zeros( (len(omic_bin), num_max_omic), dtype=int )
+  omic_idx = np.zeros((len(omic_bin), num_max_omic), dtype=int )
   for idx, line in enumerate(omic_bin):
     line = [idy+1 for idy, val in enumerate(line) if val == 1]
     omic_idx[idx][0:len(line)] = line
@@ -62,7 +62,7 @@ def get_ptw_ids(drug_info, tgt, repository):
   id2pw = {id:pw for id,pw in zip(drug_info.index,drug_info['Target pathway'])}
 
   if repository == 'gdsc':
-    #GDCS
+    #GDSC
     pws = [id2pw.get(int(c),'Unknown') for c in tgt.columns]
   else:
     #CCLE
