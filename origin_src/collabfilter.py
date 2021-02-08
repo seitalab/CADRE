@@ -112,6 +112,8 @@ class CF(Base):
     if self.use_cuda:
       drg_ids = drg_ids.cuda()
       ptw_ids = ptw_ids.cuda()
+        
+
 
 
     omc_idx = batch_set[self.omic+"_idx"]
@@ -400,11 +402,7 @@ class CF(Base):
       batch_tgts = batch_set["tgt"]
       batch_msks = batch_set["msk"]
 
-      if self.use_attention:
-        if self.use_cuda:
-          amtr.append(self.encoder.Amtr.data.cpu().numpy()) #(batch_size, num_drg, num_omc)
-        else:
-          amtr.append(self.encoder.Amtr.data.numpy()) #(batch_size, num_drg, num_omc)
+    
 
       if self.use_cuda:
         tgts.append(batch_tgts.data.cpu().numpy())
