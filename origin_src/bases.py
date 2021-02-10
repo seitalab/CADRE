@@ -301,7 +301,7 @@ class ExpEncoder(nn.Module):
         E_t_1 = torch.tanh( self.layer_w_0(E_t) + Ep_t) #(batch_size, num_drg, num_omc, attention_size)
 
       else:
-        E_t_1 = torch.tanh( self.layer_w_0(E_t) ) #(batch_size, num_omc, attention_size)
+        E_t_1 = torch.tanh(self.layer_w_0(E_t)) #(batch_size, num_omc, attention_size)
 
       A_omc = self.layer_beta(E_t_1) #(batch_size, num_drg, num_omc, attention_head)
 
